@@ -12,73 +12,65 @@
 </head>
 <body onload="getTags()">
 
-    <!-- <div class="container mt-3">
-        <div class="row mx-auto align-content-center align-items-center align-content-between align-self-center">
-            <div class="col-5 mx-auto align-content-center align-items-center align-content-between align-self-center">
-                <div id="main" style="width: 1000px;height:600px;" class=""></div>
+    <!--<div class="container mt-3">-->
+        <div id="inner-container" class="mt-5 ml-3 mr-1">
+            <div id="form-container" class="align-items-center align-content-center mx-auto">
+
+                <form id="form" class="p-2">
+
+                    <div class="form-group">
+                        <label for="tagSelector">选择一个标签</label>
+                        <select class="form-control" id="tagSelector">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startDate">开始日期</label>
+                        <input id="startDate" type="date" required>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">结束日期</label>
+                        <input id="endDate" type="date" required>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="startTime">开始时间</label>
+                        <input id="startTime" type="time">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">结束时间</label>
+                        <input id="endTime" type="time">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="count">计数</label>
+                        <input id="count" type="number" min="1">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="interval">间隔 (秒)</label>
+                        <input id="interval" type="number" min="1">
+
+                    </div>
+
+                    <input type="submit" value="PLOT CHART" id="plotButton" class="btn btn-block mt-2 my-2">
+
+                    <span id="warning" class="alert alert-danger" style="display: none">Please fill in all the fields!</span>
+
+                </form>
 
             </div>
 
-        </div>
 
 
-
-    </div> -->
-
-    <div class="container mt-3">
-        <div id="inner-container" class="">
-            <form id="form">
-
-                <div class="form-group">
-                    <label for="tagSelector">Select a tag</label>
-                    <select class="form-control" id="tagSelector">
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="startDate">Start date</label>
-                    <input id="startDate" type="date" required>
-
-                </div>
-                <div class="form-group">
-                    <label for="endDate">End date</label>
-                    <input id="endDate" type="date" required>
-
-                </div>
-                <div class="form-group">
-                    <label for="startTime">Start time</label>
-                    <input id="startTime" type="time">
-
-                </div>
-                <div class="form-group">
-                    <label for="endTime">End time</label>
-                    <input id="endTime" type="time">
-
-                </div>
-                <div class="form-group">
-                    <label for="count">Count</label>
-                    <input id="count" type="number" min="1">
-
-                </div>
-                <div class="form-group">
-                    <label for="interval">Interval (seconds)</label>
-                    <input id="interval" type="number" min="1">
-
-                </div>
-
-                <input type="submit" value="PLOT CHART" id="plotButton" class="btn btn-block mt-2 my-2">
-
-                <span id="warning" class="alert alert-danger" style="display: none">Please fill in all the fields!</span>
-
-            </form>
-
-
-            <div id="chart">
+            <div id="chart" class="align-items-center mx-auto">
                  <div id="main" style="width: 1000px;height:600px;" class=""></div>  
             </div>
 
         </div>
 
-    </div>
+    <!--</div>-->
 
 
 

@@ -6,7 +6,7 @@ let API = {
 
 
 
-// user inputs 
+// user inputs
 const tagSelector = document.querySelector('#tagSelector');
 const startDate = document.querySelector('#startDate');
 const endDate = document.querySelector('#endDate');
@@ -40,6 +40,7 @@ const option = {
     },
     xAxis: {
         data: timeArray,
+        // category: 'time'
     },
     yAxis: {},
     series: [{
@@ -55,10 +56,10 @@ async function getTags() {
     try {
 
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', API.tagsUrl, true);
-        xhr.setRequestHeader('Authorization', 'Bearer ' + API.access_token);
+        // xhr.open('GET', API.tagsUrl, true);
+        // xhr.setRequestHeader('Authorization', 'Bearer ' + API.access_token);
 
-        // xhr.open('GET', `./data/tags - verbose.json`, true);
+        xhr.open('GET', `./data/tags - verbose.json`, true);
 
         xhr.onload = async () => {
             if(xhr.status === 200) {
@@ -104,15 +105,14 @@ function buildQueryUrl(e) {
     const milliseconds = Math.ceil((parseInt(interval.value))*1000);
 
     let queryUrl = `${API.dataUrl}/${tagSelector.value}/${startDate.value}T${startTime.value}/${endDate.value}T${endTime.value}/1/${count.value}/${milliseconds}`;
-    console.log(queryUrl);
 
     try {
 
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', queryUrl, true);
-        xhr.setRequestHeader('Authorization', 'Bearer ' + API.access_token);
+        // xhr.open('GET', queryUrl, true);
+        // xhr.setRequestHeader('Authorization', 'Bearer ' + API.access_token);
 
-        // xhr.open('GET', `./data/WIN-9DBOGP80695.Simulation00052 - OG.json`, true);
+        xhr.open('GET', `./data/WIN-9DBOGP80695.Simulation00052 - OG.json`, true);
 
         xhr.onload = async () => {
             if(xhr.status === 200) {
