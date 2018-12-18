@@ -77,8 +77,6 @@ async function getTags() {
                     // console.log(tagsArray);
                     populateTagsInput();
                 });
-
-
             }
         };
 
@@ -101,30 +99,28 @@ function populateTagsInput() {
 }
 
 
-// plotButton.addEventListener('click', checkIfFormIsFullyFilled);
-plotButton.addEventListener('click', getValuesAndPlotChart);
+plotButton.addEventListener('click', checkIfFormIsFullyFilled);
+// plotButton.addEventListener('click', getValuesAndPlotChart);
 
 
-function checkIfFormIsFullyFilled() {
+function checkIfFormIsFullyFilled(e) {
+    e.preventDefault();
     console.log('button clicked');
-
-    let formInputs = form.elements;
-    // using spread operator on HTMLFormControlsCollection
-    [...formInputs].forEach(input => {
-        // console.log(input);
-        if (input.value == '') {
-            warning.style.display = 'block';
-        } else {
-            getValuesAndPlotChart();
-        }
-    });
+     if (startDate.value !== '' && startTime.value !== '' && endDate.value !== '' && endTime.value !== '' && count.value !== '' && interval.value !== '') {
+         getValuesAndPlotChart();
+     } else {
+         warning.style.display = 'block';
+     }
 }
 
 
 function getValuesAndPlotChart() {
-    // reverse the date values so it becomes ISO date format!!!  unnecessary!!!
 
-    let queryUrl = `${API.dataUrl}/${tagSelector.value}/${startDate.value}T${startTime.value}/${endDate.value}T${endTime.value}/1/${count.value}/${interval.value}`;
+    // change interval value to milliseconds
+    const milliseconds = Math.ceil((parseInt(interval.value))*1000);
+
+    let queryUrl = `${API.dataUrl}/${tagSelector.value}/${startDate.value}T${startTime.value}/${endDate.value}T${endTime.value}/1/${count.value}/${milliseconds}`;
+    console.log(queryUrl);
 
     try {
 
