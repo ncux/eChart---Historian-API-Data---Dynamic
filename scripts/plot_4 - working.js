@@ -1,13 +1,12 @@
+
 let API = {
-    access_token: "eyJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJlNTMxY2Y3ZC0wMWUyLTQ1M2QtYTY5Mi0xNjY0ZTkwNmUzMGUiLCJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbImNsaWVudHMucmVhZCIsImhpc3Rvcmlhbl9yZXN0X2FwaS5yZWFkIiwicGFzc3dvcmQud3JpdGUiLCJjbGllbnRzLnNlY3JldCIsImhpc3Rvcmlhbl9yZXN0X2FwaS5hZG1pbiIsImhpc3Rvcmlhbl9yZXN0X2FwaS53cml0ZSIsImNsaWVudC5hZG1pbiIsImNsaWVudHMud3JpdGUiLCJ1YWEuYWRtaW4iLCJzY2ltLndyaXRlIiwic2NpbS5yZWFkIl0sInNjb3BlIjpbImNsaWVudHMucmVhZCIsImhpc3Rvcmlhbl9yZXN0X2FwaS5yZWFkIiwicGFzc3dvcmQud3JpdGUiLCJjbGllbnRzLnNlY3JldCIsImhpc3Rvcmlhbl9yZXN0X2FwaS5hZG1pbiIsImhpc3Rvcmlhbl9yZXN0X2FwaS53cml0ZSIsImNsaWVudC5hZG1pbiIsImNsaWVudHMud3JpdGUiLCJ1YWEuYWRtaW4iLCJzY2ltLndyaXRlIiwic2NpbS5yZWFkIl0sImNsaWVudF9pZCI6ImFkbWluIiwiY2lkIjoiYWRtaW4iLCJhenAiOiJhZG1pbiIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiNGJlMWJiYzAiLCJpYXQiOjE1NDUwOTU0MTgsImV4cCI6MTU0NTEzODYxOCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3VhYS9vYXV0aC90b2tlbiIsInppZCI6InVhYSIsImF1ZCI6WyJhZG1pbiIsImNsaWVudHMiLCJoaXN0b3JpYW5fcmVzdF9hcGkiLCJwYXNzd29yZCIsImNsaWVudCIsInVhYSIsInNjaW0iXX0.EKiBf3upcFttiz-bHQDV21H3m-RfCn4FfRIuLtxoB95t1WJF_BDdmnYJ2nZ6kTjvHIavs9n7D0iPVu-Qibe_BwONAQpYpZxBkLXyyMAXuYu3-nezKklQQarib8WQH5-_T-g4yn6GELScTitNB8-UZfn3atF_jqYmUUSsjhHfekzYkMG4QkI-x7ikb2oGYeXjS_ztKBFCOvqqbYJZAX2qxXePMhZSYoVhRMHrLZvrH78kN5pXEqs-GY-dQx6DKUulaSAtJ9UTZTTJnrNkTGJ92dRSj7oUQk8b6VC1TDFEn4gyab4J6RmJXcTN_qlJkcLRtvsiKy__HbDplm3xpwmmzg",
+    access_token: "",
     tagsUrl: 'https://dev.sealu.net:4433/api/v1/forward?url=/historian-rest-api/v1/tagslist',
     dataUrl: "https://dev.sealu.net:4433/api/v1/forward?url=/historian-rest-api/v1/datapoints/calculated"
 };
 
 
-
 // user inputs
-const form = document.querySelector('#form');
 const tagSelector = document.querySelector('#tagSelector');
 const startDate = document.querySelector('#startDate');
 const endDate = document.querySelector('#endDate');
@@ -59,10 +58,10 @@ async function getTags() {
     try {
 
         let xhr = new XMLHttpRequest();
-        // xhr.open('GET', API.tagsUrl, true);
-        // xhr.setRequestHeader('Authorization', 'Bearer ' + API.access_token);
+        xhr.open('GET', API.tagsUrl, true);
+        xhr.setRequestHeader('Authorization', 'Bearer ' + API.access_token);
 
-        xhr.open('GET', `./data/tags - verbose.json`, true);
+        // xhr.open('GET', `./data/tags - verbose.json`, true);
 
         xhr.onload = async () => {
             if(xhr.status === 200) {
@@ -125,10 +124,10 @@ function getValuesAndPlotChart() {
     try {
 
         let xhr = new XMLHttpRequest();
-        // xhr.open('GET', queryUrl, true);
-        // xhr.setRequestHeader('Authorization', 'Bearer ' + API.access_token);
+        xhr.open('GET', queryUrl, true);
+        xhr.setRequestHeader('Authorization', 'Bearer ' + API.access_token);
 
-        xhr.open('GET', `./data/WIN-9DBOGP80695.Simulation00052 - OG.json`, true);
+        // xhr.open('GET', `./data/WIN-9DBOGP80695.Simulation00052 - OG.json`, true);
 
         xhr.onload = async () => {
             if(xhr.status === 200) {
